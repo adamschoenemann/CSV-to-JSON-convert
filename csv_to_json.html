@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<script src="DC-JSON/json2.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+		<script src="csv_to_json.js"></script>
+		<style>
+			h1 { 
+				text-align: center;
+			}
+			.TA-wrapper { 
+				width: 600px;
+				height: 600px;
+				margin: 10px;
+				float: left;
+			}
+			
+			textarea { 
+				height: 500px;
+				width: 600px;
+			}
+			#inputForm input {
+				display: block;
+			}
+			#buttons {
+				display: block;
+			}
+			.clear {
+				clear: both;
+			}
+		</style>
+	</head>
+	<body>
+		<form id="inputForm" name="inputForm" onsubmit="return false;">
+			<div class="TA-wrapper">
+				<h1>Input CSV Data</h1>
+				<textarea id="inputText"></textarea>
+			</div>
+			<div class="TA-wrapper">
+				<h1>Output JSON String</h1>
+				<textarea id="outputText"></textarea>
+			</div>
+			<div class="clear"></div>
+			<div id="buttons">
+				<input id="submitBtn" type="button" value="Convert to JSON"/>
+				<label for="delimiter">Delimiter: (default is semicolon)</label>
+				<input type="textfield" id="delimiter" value=";"/>
+			</div>
+		</form>
+		<script>
+			var $ = jQuery;
+			$("#submitBtn").on("click", function(e){ 
+				var CSV = $("#inputText").val();
+				var del = $("#delimiter").val();
+			
+				var JSON = csv_to_json(CSV, del);
+				$("#outputText").val(JSON);
+			});
+			$(document).ready(function(){ 
+				//csv_to_json($("#inputText").val(), "|");
+			});
+		</script>
+	</body>
+</html>

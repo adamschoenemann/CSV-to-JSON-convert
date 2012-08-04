@@ -1,0 +1,1 @@
+This is a simple function that takes a CSV file, a delimiter, and optionally a specific newline and converts the CSV data to JSON using Douglas Crockford's JSON library. I made because I was unable to find a satisfactory solution that allowed me to have any delimiter and newline I wanted.
